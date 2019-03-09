@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: backend-log-node
+  name: backend-log-node
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: backend-log-node
+    spec:
+      hostNetwork: true
+      containers:
+        image: gcr.io/linkme-training-kubernetes/backend-log:1.0
+        name: backend-log-node
+        ports:
+        - containerPort: 3002
